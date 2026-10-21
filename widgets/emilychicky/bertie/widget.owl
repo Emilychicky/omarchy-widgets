@@ -398,63 +398,71 @@ widget "bertie" {
         gap: 2
         Text { text: "${feedPct}%"; font: mono; style: small; color: muted; align: center; maxLines: 1 }
         Progress { value: feedPct; fill: width; height: 6; color: feedPct > 20 ? green : orange; track: alpha(muted, 0.35); animate value: spring() }
-        Button { text: "feed"; fill: width; color: hungry ? orange : accent; onTap: {
+        Box { fill: width; height: 26; align: center; border: 1; borderColor: alpha(hungry ? orange : accent, 0.6); background: alpha(hungry ? orange : accent, 0.12); onTap: {
           tapKind = !hatched || shelled > 0 ? "hatch" : "feed"
           tapAt = time
           tapNow = now
           fed = now
           born = hatched ? born : now
           shelled = 0
-        } }
+        }
+          Text { text: "feed"; fontSize: 9; color: hungry ? orange : accent; align: center; maxLines: 1 }
+        }
       }
       Column {
         weight: 1
         gap: 2
         Text { text: "${treatPct}%"; font: mono; style: small; color: muted; align: center; maxLines: 1 }
         Progress { value: treatPct; fill: width; height: 6; color: orange; track: alpha(muted, 0.35); animate value: spring() }
-        Button { text: "treat"; fill: width; color: wantsTreat ? green : accent; onTap: {
+        Box { fill: width; height: 26; align: center; border: 1; borderColor: alpha(wantsTreat ? green : accent, 0.6); background: alpha(wantsTreat ? green : accent, 0.12); onTap: {
           tapKind = !hatched || shelled > 0 ? "hatch" : "treat"
           tapAt = time
           tapNow = now
           treated = now
           born = hatched ? born : now
           shelled = 0
-        } }
+        }
+          Text { text: "treat"; fontSize: 9; color: wantsTreat ? green : accent; align: center; maxLines: 1 }
+        }
       }
       Column {
         weight: 1
         gap: 2
         Text { text: "${playPct}%"; font: mono; style: small; color: muted; align: center; maxLines: 1 }
         Progress { value: playPct; fill: width; height: 6; color: magenta; track: alpha(muted, 0.35); animate value: spring() }
-        Button { text: "play"; fill: width; color: bored ? magenta : accent; onTap: {
+        Box { fill: width; height: 26; align: center; border: 1; borderColor: alpha(bored ? magenta : accent, 0.6); background: alpha(bored ? magenta : accent, 0.12); onTap: {
           tapKind = !hatched || shelled > 0 ? "hatch" : "play"
           tapAt = time
           tapNow = now
           played = now
           born = hatched ? born : now
           shelled = 0
-        } }
+        }
+          Text { text: "play"; fontSize: 9; color: bored ? magenta : accent; align: center; maxLines: 1 }
+        }
       }
       Column {
         weight: 1
         gap: 2
         Text { text: "${dancePct}%"; font: mono; style: small; color: muted; align: center; maxLines: 1 }
         Progress { value: dancePct; fill: width; height: 6; color: yellow; track: alpha(muted, 0.35); animate value: spring() }
-        Button { text: "dance"; fill: width; color: m.playing == true ? yellow : accent; onTap: {
+        Box { fill: width; height: 26; align: center; border: 1; borderColor: alpha(m.playing == true ? yellow : accent, 0.6); background: alpha(m.playing == true ? yellow : accent, 0.12); onTap: {
           tapKind = !hatched || shelled > 0 ? "hatch" : "dance"
           tapAt = time
           tapNow = now
           danced = now
           born = hatched ? born : now
           shelled = 0
-        } }
+        }
+          Text { text: "dance"; fontSize: 9; color: m.playing == true ? yellow : accent; align: center; maxLines: 1 }
+        }
       }
       Column {
         weight: 1
         gap: 2
         Text { text: "${petPct}%"; font: mono; style: small; color: muted; align: center; maxLines: 1 }
         Progress { value: petPct; fill: width; height: 6; color: red; track: alpha(muted, 0.35); animate value: spring() }
-        Button { text: "pet"; fill: width; color: red; onTap: {
+        Box { fill: width; height: 26; align: center; border: 1; borderColor: alpha(red, 0.6); background: alpha(red, 0.12); onTap: {
           tapKind = !hatched || shelled > 0 ? "hatch" : "pet"
           tapAt = time
           tapNow = now
@@ -462,7 +470,9 @@ widget "bertie" {
           petted = now
           born = hatched ? born : now
           shelled = 0
-        } }
+        }
+          Text { text: "pet"; fontSize: 9; color: red; align: center; maxLines: 1 }
+        }
       }
     }
   }
